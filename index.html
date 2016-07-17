@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>Samox Github Page</title>
-    <link rel="stylesheet" href="styles/main.css">
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -12,13 +9,23 @@
 
       ga('create', 'UA-80819376-1', 'auto');
       ga('send', 'pageview');
-
     </script>
   </head>
   <body>
 
-    <button onclick="location.href='http://www.theodo.fr/fr/joinus/developer'; ga('send', 'event', 'Join Us Button', 'Action label', 'Action Value');"> Join Us </button>
-    <a onclick="ga('send', 'event', 'Join Us Link', 'Action label', 'Action Value');" href="http://www.theodo.fr/fr/joinus/developer"> Join Us </a>
+    <div id="ABTest"></div>
+
+    <script>
+      var ABDiv
+      var yourUrl = "http://www.theodo.fr/fr/joinus/developer"
+      var ABTest = Math.random() >= 0.5;
+      if (ABTest) {
+        ABDiv = "<button onclick=\"location.href='" + yourUrl + "'; ga('send', 'event', 'Join Us Button', 'Action label', 'Action Value');\"> Join Us </button>";
+      } else {
+        ABDiv = "<a onclick=\"ga('send', 'event', 'Join Us Link', 'Action label', 'Action Value');\" href=\"" + yourUrl + "\"> Join Us </a>";
+      };
+      document.getElementById("ABTest").innerHTML = ABDiv;
+    </script>
 
   </body>
 </html>
